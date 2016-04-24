@@ -2,6 +2,8 @@ import random
 def getSecretNum(NumDigits):
     # numbers = random.randint(1, 10)
     numbers = list(range(10))
+    random.shuffle(numbers)
+    
 
     
     secretNum=''
@@ -35,6 +37,7 @@ def digitsOnly(num):
 
 def playAgain():
     print ('Do you want to play again? (yes or no)')
+    return input().lower().startswith('y')
     
     return input
 numDigits = 3
