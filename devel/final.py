@@ -1,17 +1,19 @@
 import random
 def getSecretNum(NumDigits):
-    numbers = random.randint(1, 10)
+    # numbers = random.randint(1, 10)
+    numbers = list(range(10))
+
     
     secretNum=''
     for i in range (numDigits):
-        secretNum=str(numbers[i]) + 1
+        secretNum +=str(numbers[i])
     return secretNum
 
 def getClues(guess, secretNum):
     if guess == secretNum:
         return 'You got it!'
 
-    Clue = []
+    clue = []
 
     for i in range(len(guess)):
         if guess[i] == secretNum[i]:
@@ -35,7 +37,7 @@ def playAgain():
     print ('Do you want to play again? (yes or no)')
     
     return input
-NumDigits = 3
+numDigits = 3
 MaxGuess = 10
 
 print('I am thinking of a %s-digit number. Try to guess what it is.' % (numDigits))
@@ -47,14 +49,14 @@ print('Bagels     No digit is correct.')
 
 while True:
     secretNum = getSecretNum(numDigits)
-    print('I am thinking of a number. you have %s guesses to get it.' %(maxGuess))
+    print('I am thinking of a number. you have %s guesses to get it.' %( MaxGuess ))
 
     numGuesses = 1
-    while numGuesses<= maxGuesses:
+    while numGuesses <= MaxGuess:
         guess=''
         while len(guess) != numDigits or not digitsOnly(guess):
-            print(Guess #%s: ' %(numGuesses))
-            guess = int(input()) 
+            print('Guess #%s: ' %(numGuesses))
+            guess = (input())
                   
 
         clue=getClues(guess, secretNum)
@@ -64,12 +66,9 @@ while True:
         if guess == secretNum:
             break
 
-        if numGuesses > maxGuesses:
-            print('You ran out of guesses. The answer was %s.' % (secretNumber))
+        if numGuesses > MaxGuess:
+            print('You ran out of guesses. The answer was %s.' % (secretNum))
 
     if not playAgain():
         break
-                  
-    
-      
-
+                
