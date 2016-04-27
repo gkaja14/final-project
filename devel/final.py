@@ -22,10 +22,10 @@ def getClues(guess, secretNum):
             clue.append('Fermi')
         elif guess [i] in secretNum:
             clue.append('pico')
-        if len(clue) == 0:
-            return 'Bagels'
-        clue.sort()
-        return''.join(clue)
+    if len(clue) == 0:
+        return 'Bagels'
+    clue.sort()
+    return''.join(clue)
 
 def digitsOnly(num):
     if num == '':
